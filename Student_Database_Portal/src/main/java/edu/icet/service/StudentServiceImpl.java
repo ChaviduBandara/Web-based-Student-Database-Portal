@@ -24,4 +24,9 @@ public class StudentServiceImpl implements StudentService{
     public void addStudent(Student student) {
         repository.save(student);
     }
+
+    @Override
+    public void deleteStudentById(Integer id) {
+        repository.deleteById(id);
+    }
 }
