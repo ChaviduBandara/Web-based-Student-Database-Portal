@@ -13,18 +13,28 @@ public class StudentController {
     @Autowired
     StudentService service;
 
-    @GetMapping
+    @GetMapping     // read
     public List<Student> getStudents(){
         return service.getStudent();
     }
 
-    @PostMapping
+    @PostMapping      // write
     public void addStudent(@RequestBody Student student){
         service.addStudent(student);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/{id}")     // delete
     public void deleteStudentById(@PathVariable Integer id){
         service.deleteStudentById(id);
+    }
+
+    @PutMapping      // updated
+    public void updateStudent(@RequestBody Student student){
+        service.addStudent(student);
+    }
+
+    @GetMapping("/find-by-name/{name}")
+    public List<Student> findByName(@PathVariable String name){
+        return service.findByName(name);
     }
 }
