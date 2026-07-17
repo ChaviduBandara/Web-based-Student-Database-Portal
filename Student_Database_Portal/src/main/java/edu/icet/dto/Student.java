@@ -1,8 +1,6 @@
 package edu.icet.dto;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Getter
@@ -14,6 +12,7 @@ import lombok.*;
 @Table(name = "student")
 public class Student {
     @Id     // Telling this is the primary key
+    @GeneratedValue(strategy = GenerationType.AUTO)     // auto generating the primary key
     private Integer id;
     private String name;
     private String address;
